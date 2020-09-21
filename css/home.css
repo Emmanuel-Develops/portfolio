@@ -1,0 +1,368 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  background-color: grey;
+  height: 1px;
+}
+
+.fas {
+  margin: 0 0.5em;
+}
+
+:root {
+  --dark-text: #333;
+}
+
+.dark {
+  --dark-overlay: rgba(0, 0, 0, 0.5);
+  --light-bg-accent: #eee;
+  --light-text: #eee;
+  --mid-tone: #757575;
+}
+
+.myContainer {
+  width: min(90%, 1400px);
+  margin: 0 auto;
+}
+
+.extra {
+  width: 100vw;
+  height: 200px;
+}
+
+header#navigation {
+  position: fixed;
+  width: 100%;
+  height: 3rem;
+  z-index: 4;
+}
+
+.header-bg {
+  position: absolute;
+  bottom: 100%;
+  width: 50vw;
+  height: 100vh;
+  right: 0;
+  background: rgba(100, 100, 100, 0.85);
+  transition: bottom 0.8s ease-out;
+  z-index: 3;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  display: inline-block;
+  margin: 0 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nav-toggle:focus {
+  outline: none;
+}
+
+.hamburger {
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: var(--light-bg-accent, #333);
+  border-radius: 5px;
+}
+
+.hamburger::before {
+  position: absolute;
+  content: "";
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  position: absolute;
+  content: "";
+  transform: translateY(8px);
+}
+
+.nav-element {
+  visibility: hidden;
+  height: 0;
+  text-align: right;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.nav-list {
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+
+.nav--visible {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.8s ease-out 0.8s;
+}
+.nav--visible .nav-item {
+  margin-top: 0.5em;
+}
+
+.header-bg--visible {
+  bottom: calc(-100vh + 100%);
+  backdrop-filter: blur(5px);
+  transition: bottom 0.8s ease-out, backdrop-filter 0s linear 0.8s;
+}
+
+.nav-item {
+  display: block;
+  width: auto;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #eee;
+  font-weight: 700;
+  padding: 0.5em;
+}
+
+.nav-link:active {
+  color: #f3a143;
+}
+
+.nav-link:hover {
+  color: #eee;
+  text-shadow: 0 0 1px rgba(243, 161, 67, 0.2);
+  animation: hoverLink 0.8s ease-out forwards;
+}
+.nav-link:hover::before {
+  position: absolute;
+  content: "";
+  right: 8px;
+  bottom: 10%;
+  width: calc(100% - 16px);
+  height: 2px;
+  background: linear-gradient(90deg, #f3a143 0%, #f3a143 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
+  background-size: 400% 400%;
+  animation: hoverLink 0.8s ease-out forwards;
+}
+
+@keyframes hoverLink {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+    color: #f3a143;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  color: #eee;
+}
+body#bg-img {
+  min-height: 100vh;
+  background: url("/images/background/cubes-2492010_1920.jpg"), rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  overflow-x: hidden;
+}
+
+#start {
+  height: 100vh;
+}
+
+.start-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-weight: 600;
+  color: #f6b05f;
+}
+
+.profile-left,
+.profile-info {
+  position: relative;
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-left {
+  left: -100%;
+}
+
+.image-container {
+  width: auto;
+  padding: 2em;
+  border-radius: 1em;
+}
+.image-container .profile-image {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 10px 4px #f3a143;
+  background: url("/images/profile/IMG_smaller.jpg"), rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+.image-container .profile-image-name {
+  font-size: 1rem;
+  margin: 2em 0 0;
+  line-height: 1;
+  text-align: center;
+}
+
+.profile-left--start {
+  left: 0;
+  transition: left 1.6s ease-out;
+}
+.profile-left--start .image-container {
+  background-color: rgba(0, 0, 0, 0.23);
+  transition-property: background-color, backdrop-filter;
+  transition-delay: 2s;
+  backdrop-filter: blur(15px);
+}
+
+.profile-info {
+  flex-direction: column;
+  right: -100%;
+  font-size: 1rem;
+}
+
+.profile-info--start {
+  right: 0;
+  transition: right 1.6s ease-out;
+}
+
+.profile-info-header {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.profile-info-text {
+  color: #eee;
+  font-size: 1.2em;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-family: "montserrat";
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.projects-grid {
+  width: 100%;
+  grid-template-columns: repeat(auto 300px);
+}
+
+.projects-item img {
+  width: 300px;
+  height: 300px;
+}
+
+@media screen and (min-width: 900px) {
+  .nav-toggle,
+.hamburger,
+.header-bg {
+    display: none;
+  }
+
+  .nav-element {
+    visibility: visible;
+    padding-left: 5%;
+    width: min(50%, 700px);
+    margin: 0.5em 0 0 auto;
+    height: auto;
+    opacity: 1;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-list .nav-item {
+    width: auto;
+  }
+
+  .start-info {
+    flex-direction: row;
+    text-align: left;
+  }
+  .start-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.23);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+  }
+  .start-info .profile-info {
+    padding-left: 5%;
+  }
+  .start-info .profile-info .profile-info-header {
+    text-align: left;
+  }
+  .start-info .image-container {
+    margin-left: -10%;
+    width: min(50%, 250px);
+  }
+  .start-info .image-container .profile-image {
+    background: url("/images/profile/IMG_small.jpg"), rgba(0, 0, 0, 0.1);
+    background-size: cover;
+  }
+  .start-info .image-container .profile-image-name {
+    font-size: 1.4rem;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

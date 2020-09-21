@@ -1,0 +1,70 @@
+// SCREENS LARGER THAN 500PX AND ABOVE
+@media screen and (min-width: 900px) {
+  // ==== NAVIGATION ====
+  // header#navigation {
+  //   // backdrop-filter: blur(5px);
+  //   // padding-bottom: 1em;
+  //   // background-color: rgba(0, 0, 0, 1);
+  // }
+  .nav-toggle,
+  .hamburger,
+  .header-bg {
+    display: none;
+  }
+
+  .nav-element {
+    visibility: visible;
+    padding-left: 5%;
+    // outline: 2px solid green;
+    width: min(50%, 700px);
+    margin: 0.5em 0 0 auto;
+    height: auto;
+    opacity: 1;
+  }
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    .nav-item {
+      width: auto;
+      //   margin: 0 0 0 5%;
+    }
+  }
+  .start-info {
+    flex-direction: row;
+    text-align: left;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50vw;
+      // width: calc(50vw + 5%);
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.23);
+      backdrop-filter: blur(15px);
+      // background-color: rgb(100, 100, 100);
+      z-index: -1;
+    }
+    .profile-info {
+      padding-left: 5%;
+      .profile-info-header {
+        text-align: left;
+      }
+      //   outline: 2px solid yellow;
+    }
+    .image-container {
+      margin-left: -10%;
+      width: min(50%, 250px);
+      .profile-image {
+        background: $profile-img-small, $light-dark-overlay;
+        background-size: cover;
+      }
+      .profile-image-name {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  // ==== NAVIGATION ENDS ====
+}
+//   @media screen and (min-width: 700px) {
+//   }

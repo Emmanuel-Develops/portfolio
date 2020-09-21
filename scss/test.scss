@@ -1,0 +1,21 @@
+$primary-color: #c4a;
+
+body {
+  background: #333;
+}
+
+.test {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: var(--dark-bg, $primary-color);
+  border: 2px solid black;
+}
+
+.dark {
+  &.test {
+    --dark-bg: lighten($primary-color, 0.2);
+    // --dark-bg: #afc;
+    color: #fff;
+  }
+}

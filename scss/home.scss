@@ -1,0 +1,140 @@
+@import "general";
+@import "nav";
+
+body {
+  &#bg-img {
+    min-height: 100vh;
+    background: $background-img;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    overflow-x: hidden;
+    // backdrop-filter: blur(5px);
+  }
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  color: #eee;
+}
+
+#start {
+  height: 100vh;
+  //   outline: 1px solid green;
+}
+
+.start-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-weight: 600;
+  color: $light-gold-text;
+  //   border: 2px solid white;
+}
+
+.profile-left,
+.profile-info {
+  position: relative;
+  //   display: block;
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //   outline: 2px solid yellow;
+}
+
+.profile-left {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  left: -100%;
+  //   align-items: flex-end;
+}
+
+.image-container {
+  width: auto;
+  padding: 2em;
+  border-radius: 1em;
+  //   border: 2px solid red;
+  .profile-image {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    // max-width: 200px;
+    padding-top: 100%;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 10px 4px $gold-text;
+    background: $profile-img-smallest, $light-dark-overlay;
+    background-blend-mode: multiply;
+    background-size: cover;
+  }
+  .profile-image-name {
+    font-size: 1rem;
+    margin: 2em 0 0;
+    line-height: 1;
+    text-align: center;
+  }
+}
+
+.profile-left--start {
+  left: 0;
+  transition: left 1.6s ease-out;
+  .image-container {
+    // background-color: rgb(90, 90, 90, 0.5);
+    background-color: rgba(0, 0, 0, 0.23);
+    // transition: background-color, backdrop-filter, 0s none 10s;
+    transition-property: background-color, backdrop-filter;
+    transition-delay: 2s;
+    backdrop-filter: blur(15px);
+  }
+}
+
+.profile-info {
+  flex-direction: column;
+  //   position: relative;
+  right: -100%;
+  //   outline: 2px solid red;
+  //   font-family: "roboto";
+  font-size: 1rem;
+  // color: $light-gold-text;
+}
+.profile-info--start {
+  right: 0;
+  transition: right 1.6s ease-out;
+}
+.profile-info-header {
+  font-size: 1.4em;
+  text-align: center;
+}
+.profile-info-text {
+  color: $light-grey-text;
+  font-size: 1.2em;
+}
+
+// ==== Projects ====
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-family: "montserrat";
+  font-weight: 700;
+  font-size: 1.4rem;
+  //   outline: 2px solid grey;
+}
+
+.projects-grid {
+  width: 100%;
+  grid-template-columns: repeat(auto 300px);
+}
+
+.projects-item {
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@import "mobile";

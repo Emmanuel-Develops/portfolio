@@ -1,0 +1,154 @@
+header#navigation {
+  // Header is fullscreen and fixed
+  position: fixed;
+  width: 100%;
+  // consistent height across all screens
+  height: 3rem;
+  z-index: 4;
+  // background-color: rgb(51, 51, 51);
+}
+
+.header-bg {
+  // animated background when hamburger menu is clicked
+  position: absolute;
+  bottom: 100%;
+  width: 50vw;
+  height: 100vh;
+  right: 0;
+  background: rgb(100, 100, 100, 0.85);
+  // reverse transition for the bottom *moves back up after dropdown
+  transition: bottom 0.8s ease-out;
+  z-index: 3;
+}
+
+.nav-toggle {
+  // conatiner to toggle hamburger menu
+  background: none;
+  border: none;
+  display: inline-block;
+  margin: 0 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // z-index: 10;
+}
+.nav-toggle:focus {
+  outline: none;
+}
+// .nav-toggle:hover #navigation::before {
+//   &::before {
+
+//   }
+// }
+
+// all .hamburger are the 3 rectangles for the menu
+.hamburger {
+  position: relative;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: var(--light-bg-accent, $dark-bg-accent);
+  border-radius: 5px;
+}
+.hamburger::before {
+  position: absolute;
+  content: "";
+  transform: translateY(-8px);
+}
+.hamburger::after {
+  position: absolute;
+  content: "";
+  transform: translateY(8px);
+}
+
+// .nav-element is animated navigation
+.nav-element {
+  visibility: hidden;
+  height: 0;
+  text-align: right;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.nav-list {
+  margin: 0 0 0 auto;
+  padding: 0;
+  // outline: 2px solid green;
+}
+// toggles nav for mobile view when hamburger menu is clicked
+.nav--visible {
+  .nav-item {
+    margin-top: 0.5em;
+  }
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  // reverse transition
+  transition: opacity 0.8s ease-out 0.8s;
+}
+// toggles nav background for mobile view when hamburger menu is clicked
+.header-bg--visible {
+  bottom: calc(-100vh + 100%);
+  backdrop-filter: blur(5px);
+  transition: bottom 0.8s ease-out, backdrop-filter 0s linear 0.8s;
+}
+
+.nav-item {
+  display: block;
+  width: auto;
+
+  // outline: 2px solid yellow;
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  // color: var(--light-text, --dark-text);
+  color: $light-grey-text;
+  font-weight: 700;
+  padding: 0.5em;
+  // outline: 2px solid red;
+}
+.nav-link:active {
+  color: $gold-text;
+}
+.nav-link:hover {
+  color: $light-grey-text;
+  text-shadow: 0 0 1px rgb(243, 161, 67, 0.2);
+  animation: hoverLink 0.8s ease-out forwards;
+  // background: #333;
+  &::before {
+    position: absolute;
+    content: "";
+    right: 8px;
+    bottom: 10%;
+    width: calc(100% - 16px);
+    height: 2px;
+    background: linear-gradient(90deg, rgb(243, 161, 67) 0%, rgb(243, 161, 67) 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
+    // background: linear-gradient(90deg, rgba(251, 171, 42, 1) 0%, rgba(251, 171, 42, 1) 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
+    // background: rgba(252, 171, 42);
+    background-size: 400% 400%;
+    animation: hoverLink 0.8s ease-out forwards;
+  }
+}
+
+@keyframes hoverLink {
+  0% {
+    background-position: 100% 100%;
+    // color: var(--light-text, --dark-text);
+  }
+  100% {
+    background-position: 0% 0%;
+    color: $gold-text;
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+    <!-- BootStrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/home.css" />
+
+    <title>Single Page Resume</title>
+  </head>
+  <body id="bg-img" class="dark">
+    <div class="header-bg"></div>
+    <header id="navigation">
+      <div class="myContainer">
+        <button class="nav-toggle" aria-label="open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <nav class="nav-element">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section id="start" class="myContainer">
+      <div class="start-info">
+        <div class="profile-left">
+          <div class="image-container">
+            <div class="profile-image"></div>
+            <h3 class="profile-image-name">Emmanuel Itakpe</h3>
+          </div>
+        </div>
+        <div class="profile-info">
+          <div>
+            <h3 class="profile-info-header">Hi there.. 👋</h3>
+            <hr />
+            <p class="profile-info-text">I'm Emmanuel Itakpe, a self-taught Frontend Developer, take a look at my projects let's work together.</p>
+
+            <a type="button" class="btn btn-primary">CONTACT</a>
+            <a type="button" class="btn btn-outline-secondary ml-3">RESUME</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="myContainer">
+      <h2 class="section-title">
+        PROJECTS<span><i class="fas fa-tasks"></i></span>
+      </h2>
+      <div class="projects-grid">
+        <div class="project-item">
+          <div class="project-item--graphics">
+            <div class="project-image">
+              <img src="/images/projects/jsGame_edited.jpg" alt="" />
+            </div>
+            <div class="project-stack"></div>
+          </div>
+          <div class="projects-item-info"></div>
+        </div>
+        <div class="project-item">
+          <div class="project-item--graphics">
+            <div class="project-image">
+              <img src="/images/projects/jsGame_edited.jpg" alt="" />
+            </div>
+            <div class="project-stack">html css js</div>
+          </div>
+          <div class="projects-item-info"></div>
+        </div>
+      </div>
+    </section>
+    <script src="./main.js"></script>
+  </body>
+</html>

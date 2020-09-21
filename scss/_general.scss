@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  background-color: grey;
+  height: 1px;
+}
+
+// Font Awesome
+.fas {
+  margin: 0 0.5em;
+}
+
+// ==== VARIABLES ====
+
+// ---- COLORS
+$white-overlay: rgba(200, 200, 200, 0.8);
+$dark-overlay: rgba(0, 0, 0, 0.4);
+$light-dark-overlay: rgba(0, 0, 0, 0.1);
+$dark-bg-accent: #333;
+$mid-tone: #757575;
+$light-grey-text: #eee;
+$gold-text: rgb(243, 161, 67);
+$light-gold-text: rgb(246, 176, 95);
+$global-time: 0.8s;
+:root {
+  --dark-text: #333;
+}
+
+// ---- IMAGES
+$background-img: url("/images/background/cubes-2492010_1920.jpg"), $dark-overlay;
+$profile-img-smallest: url("/images/profile/IMG_smaller.jpg");
+$profile-img-small: url("/images/profile/IMG_small.jpg");
+
+// ==== DARK MODE ====
+.dark {
+  --dark-overlay: rgba(0, 0, 0, 0.5);
+  --light-bg-accent: #eee;
+  --light-text: #eee;
+  --mid-tone: #757575;
+  // .nav-link:hover {
+  //   // background: var(--light-text);
+  //   // color: var(--dark-text);
+  // }
+}
+// ==================
+
+.myContainer {
+  width: min(90%, 1400px);
+  margin: 0 auto;
+}
+
+.extra {
+  width: 100vw;
+  height: 200px;
+}
+
+// .btn {
+//   font-size: 1rem;
+//   display: inline-block;
+//   padding: 0.5em 1em;
+//   // margin: 0.5em 0;
+
+//   border-radius: 0.2em;
+// }
+// .btn + .btn {
+//   margin-left: 1em;
+// }
+// .primary {
+//   // border: 2px solid $light-gold-text;
+//   background-color: #0353a4;
+//   color: #eee;
+// }
+
+@function set-text-color($color) {
+  @if (lightness($color) > 40) {
+    @return #333;
+  } @else {
+    @return #eee;
+  }
+}
+
+@mixin transitionDelay {
+  transition: all 0s ease-out 0.8s;
+}
