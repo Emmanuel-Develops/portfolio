@@ -1,8 +1,14 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   list-style: none;
+}
+
+:root {
+  --dark-text: #333;
 }
 
 img {
@@ -23,16 +29,20 @@ a {
 }
 
 hr {
-  background-color: grey;
+  background-color: #333333;
   height: 1px;
+}
+
+.dark2 {
+  color: #222222;
+}
+
+.dark3 {
+  color: #333333;
 }
 
 .fas {
   margin: 0 0.5em;
-}
-
-:root {
-  --dark-text: #333;
 }
 
 .dark {
@@ -52,15 +62,34 @@ hr {
   height: 200px;
 }
 
+.title-1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.detail {
+  font-weight: 700;
+  text-size-adjust: 20px;
+}
+.detail a {
+  color: #f6b05f;
+}
+
+.btn {
+  font-weight: 700;
+}
+
 header#navigation {
   position: fixed;
   width: 100%;
   height: 3rem;
   z-index: 4;
+  background-color: #222222;
 }
 
 .header-bg {
-  position: absolute;
+  position: fixed;
   bottom: 100%;
   width: 50vw;
   height: 100vh;
@@ -154,7 +183,7 @@ header#navigation {
   width: auto;
   text-decoration: none;
   text-transform: uppercase;
-  color: #eee;
+  color: #ccc;
   font-weight: 700;
   padding: 0.5em;
 }
@@ -164,7 +193,7 @@ header#navigation {
 }
 
 .nav-link:hover {
-  color: #eee;
+  color: #ccc;
   text-shadow: 0 0 1px rgba(243, 161, 67, 0.2);
   animation: hoverLink 0.8s ease-out forwards;
 }
@@ -175,7 +204,7 @@ header#navigation {
   bottom: 10%;
   width: calc(100% - 16px);
   height: 2px;
-  background: linear-gradient(90deg, #f3a143 0%, #f3a143 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
+  background: linear-gradient(90deg, #f6b05f 0%, #f6b05f 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
   background-size: 400% 400%;
   animation: hoverLink 0.8s ease-out forwards;
 }
@@ -186,7 +215,7 @@ header#navigation {
   }
   100% {
     background-position: 0% 0%;
-    color: #f3a143;
+    color: #f6b05f;
   }
 }
 body {
@@ -197,7 +226,7 @@ body {
 }
 body#bg-img {
   min-height: 100vh;
-  background: url("/images/background/cubes-2492010_1920.jpg"), rgba(0, 0, 0, 0.4);
+  background: url("/images/background/cubes-2492010_1920.jpg"), rgba(0, 0, 0, 0.6);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -207,14 +236,13 @@ body#bg-img {
 
 #start {
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .start-info {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: left;
   font-weight: 600;
   color: #f6b05f;
@@ -224,17 +252,14 @@ body#bg-img {
 .profile-info {
   position: relative;
   flex: 0 0 50%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.profile-left {
-  left: -100%;
-}
-
 .image-container {
-  width: auto;
+  width: clamp(30vw, 200px, 300px);
   padding: 2em;
   border-radius: 1em;
 }
@@ -257,54 +282,108 @@ body#bg-img {
   text-align: center;
 }
 
-.profile-left--start {
-  left: 0;
-  transition: left 1.6s ease-out;
-}
 .profile-left--start .image-container {
-  background-color: rgba(0, 0, 0, 0.23);
+  background-color: rgba(20, 20, 20, 0.3);
   transition-property: background-color, backdrop-filter;
   transition-delay: 2s;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(0);
 }
 
 .profile-info {
-  flex-direction: column;
-  right: -100%;
   font-size: 1rem;
 }
 
-.profile-info--start {
-  right: 0;
-  transition: right 1.6s ease-out;
+.tl-text {
+  display: inline-block;
 }
 
 .profile-info-header {
-  font-size: 1.4em;
   text-align: center;
 }
 
 .profile-info-text {
-  color: #eee;
-  font-size: 1.2em;
+  color: #ccc;
+  background: transparent;
+  overflow-y: hidden;
+}
+
+section#projects {
+  position: relative;
+  padding: 3rem 0;
+}
+section#projects::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  background-size: cover;
+  margin: 0 auto;
 }
 
 .section-title {
-  position: relative;
-  display: inline-block;
-  font-family: "montserrat";
+  font-family: "poppins";
   font-weight: 700;
   font-size: 1.4rem;
+  color: #ccc;
 }
 
 .projects-grid {
+  display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto 300px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+  margin-top: 3rem;
+}
+.projects-grid img {
+  filter: brightness(0.9);
 }
 
-.projects-item img {
-  width: 300px;
-  height: 300px;
+.project-item {
+  border-radius: 1em;
+  backdrop-filter: blur(0);
+  background-color: #333333;
+}
+.project-item .project-info {
+  border-radius: 1em;
+}
+
+.title {
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: #222222;
+  border-radius: 1rem 1rem 0 0;
+  color: #f6b05f;
+}
+
+.project-info-stack {
+  display: flex;
+  justify-content: space-between;
+}
+.project-info-stack.title {
+  color: gray;
+  font-size: 1.3em;
+  font-weight: 600;
+  border-radius: 0;
+}
+.project-info-stack .links {
+  flex: 0 0 auto;
+}
+.project-info-stack .links a {
+  margin-left: 15px;
+}
+.project-info-stack .links .icons {
+  font-size: 25px;
+  color: #f6b05f;
+  margin: 0;
+}
+
+.project-info-text {
+  letter-spacing: 1px;
+  line-height: 1.8;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 900px) {
@@ -342,9 +421,12 @@ body#bg-img {
     right: 0;
     width: 50vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.23);
+    background-color: rgba(20, 20, 20, 0.3);
     backdrop-filter: blur(15px);
     z-index: -1;
+  }
+  .start-info .profile-left {
+    align-items: center;
   }
   .start-info .profile-info {
     padding-left: 5%;
@@ -359,9 +441,6 @@ body#bg-img {
   .start-info .image-container .profile-image {
     background: url("/images/profile/IMG_small.jpg"), rgba(0, 0, 0, 0.1);
     background-size: cover;
-  }
-  .start-info .image-container .profile-image-name {
-    font-size: 1.4rem;
   }
 }
 

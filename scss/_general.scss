@@ -1,8 +1,27 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   list-style: none;
+}
+
+// ---- COLORS
+$white-overlay: rgba(200, 200, 200, 0.8);
+$dark-overlay: rgba(0, 0, 0, 0.6);
+$light-dark-overlay: rgba(0, 0, 0, 0.1);
+$dark-bg-accent: #333;
+$mid-tone: #757575;
+$light-grey-text: #ccc;
+$gold-text: rgb(243, 161, 67);
+$light-gold-text: rgb(246, 176, 95);
+$global-time: 0.8s;
+$dark-blur: rgba(20, 20, 20, 0.3);
+$dark2: rgb(34, 34, 34);
+$dark3: rgb(51, 51, 51);
+:root {
+  --dark-text: #333;
 }
 
 img {
@@ -22,8 +41,15 @@ a {
 }
 
 hr {
-  background-color: grey;
+  background-color: $dark3;
   height: 1px;
+}
+
+.dark2 {
+  color: $dark2;
+}
+.dark3 {
+  color: $dark3;
 }
 
 // Font Awesome
@@ -32,20 +58,6 @@ hr {
 }
 
 // ==== VARIABLES ====
-
-// ---- COLORS
-$white-overlay: rgba(200, 200, 200, 0.8);
-$dark-overlay: rgba(0, 0, 0, 0.4);
-$light-dark-overlay: rgba(0, 0, 0, 0.1);
-$dark-bg-accent: #333;
-$mid-tone: #757575;
-$light-grey-text: #eee;
-$gold-text: rgb(243, 161, 67);
-$light-gold-text: rgb(246, 176, 95);
-$global-time: 0.8s;
-:root {
-  --dark-text: #333;
-}
 
 // ---- IMAGES
 $background-img: url("/images/background/cubes-2492010_1920.jpg"), $dark-overlay;
@@ -73,6 +85,25 @@ $profile-img-small: url("/images/profile/IMG_small.jpg");
 .extra {
   width: 100vw;
   height: 200px;
+}
+
+.title-1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.detail {
+  font-weight: 700;
+  text-size-adjust: 20px;
+  a {
+    color: $light-gold-text;
+  }
+}
+
+.btn {
+  font-weight: 700;
+  // border: 1px solid $light-gold-text;
 }
 
 // .btn {

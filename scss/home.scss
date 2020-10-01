@@ -20,6 +20,8 @@ body {
 
 #start {
   height: 100vh;
+  overflow-x: hidden;
+  // display: none;
   //   outline: 1px solid green;
 }
 
@@ -27,8 +29,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: left;
   font-weight: 600;
   color: $light-gold-text;
@@ -38,24 +38,27 @@ body {
 .profile-left,
 .profile-info {
   position: relative;
-  //   display: block;
   flex: 0 0 50%;
+  // background: black;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  //   outline: 2px solid yellow;
+  // border: 2px solid yellow;
 }
 
 .profile-left {
   // display: flex;
   // align-items: center;
   // justify-content: center;
-  left: -100%;
-  //   align-items: flex-end;
+  // left: -100%;
+  // transform: translateX(-100%);
+  // align-items: flex-end;
 }
 
 .image-container {
-  width: auto;
+  // width: min(30vw, 300px);
+  width: clamp(30vw, 200px, 300px);
   padding: 2em;
   border-radius: 1em;
   //   border: 2px solid red;
@@ -81,60 +84,146 @@ body {
 }
 
 .profile-left--start {
-  left: 0;
-  transition: left 1.6s ease-out;
+  // left: 0;
+  // transform: translateX(0);
+  // transition: transform 1.6s ease-out;
   .image-container {
     // background-color: rgb(90, 90, 90, 0.5);
-    background-color: rgba(0, 0, 0, 0.23);
+    background-color: $dark-blur;
     // transition: background-color, backdrop-filter, 0s none 10s;
     transition-property: background-color, backdrop-filter;
     transition-delay: 2s;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(0);
   }
 }
 
 .profile-info {
-  flex-direction: column;
-  //   position: relative;
-  right: -100%;
-  //   outline: 2px solid red;
-  //   font-family: "roboto";
+  // transform: translateX(100%);
+  // right: -100%;
+  // outline: 2px solid red;
   font-size: 1rem;
   // color: $light-gold-text;
 }
-.profile-info--start {
-  right: 0;
-  transition: right 1.6s ease-out;
+// .profile-info--start {
+//   transform: translateX(0);
+//   // right: 0;
+//   transition: transform 1.6s ease-out;
+// }
+
+.tl-text {
+  display: inline-block;
 }
+
 .profile-info-header {
-  font-size: 1.4em;
   text-align: center;
 }
 .profile-info-text {
   color: $light-grey-text;
-  font-size: 1.2em;
+  background: transparent;
+  overflow-y: hidden;
+  // font-size: 1.2em;
 }
 
 // ==== Projects ====
-.section-title {
+section#projects {
   position: relative;
-  display: inline-block;
-  font-family: "montserrat";
+  padding: 3rem 0;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // background-color: rgb(46, 33, 46);
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    margin: 0 auto;
+  }
+}
+
+.section-title {
+  font-family: "poppins";
   font-weight: 700;
   font-size: 1.4rem;
-  //   outline: 2px solid grey;
+  color: $light-grey-text;
+  // outline: 2px solid grey;
 }
 
 .projects-grid {
+  display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto 300px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+  margin-top: 3rem;
+  img {
+    // border-radius: 0.5em;
+    filter: brightness(0.9);
+  }
 }
 
-.projects-item {
-  img {
-    width: 300px;
-    height: 300px;
+.project-item {
+  border-radius: 1em;
+  backdrop-filter: blur(0);
+  // background-color: $dark-blur;
+  background-color: rgb(51, 51, 51);
+  // .project-image {
+  //   padding: 1em;
+  //   // outline: 2px solid red;
+  //   // border-radius: 0.5em;
+  //   overflow: hidden;
+  // }
+  // h4.title {
+  //   font-size: 1.2em;
+  //   font-weight: 600;
+  // }
+  .project-info {
+    // background-color: rgb(51, 51, 51);
+    // background-color: red;
+    border-radius: 1em;
   }
+}
+
+.title {
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: $dark2;
+  border-radius: 1rem 1rem 0 0;
+  color: $light-gold-text;
+  // text-transform: uppercase;
+}
+
+.project-info-stack {
+  &.title {
+    color: gray;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-radius: 0;
+    // min-height: 5rem;
+  }
+  display: flex;
+  justify-content: space-between;
+  // margin-top: 1em;
+  .links {
+    flex: 0 0 auto;
+    // align-self: flex-start;
+    // outline: 2px solid blue;
+    a {
+      margin-left: 15px;
+    }
+    .icons {
+      font-size: 25px;
+      color: $light-gold-text;
+      margin: 0;
+      // outline: 2px solid red;
+    }
+  }
+}
+
+.project-info-text {
+  letter-spacing: 1px;
+  line-height: 1.8;
+  padding: 1rem;
 }
 
 @import "mobile";

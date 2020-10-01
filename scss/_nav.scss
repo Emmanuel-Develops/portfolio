@@ -5,12 +5,13 @@ header#navigation {
   // consistent height across all screens
   height: 3rem;
   z-index: 4;
-  // background-color: rgb(51, 51, 51);
+  // backdrop-filter: blur(5px);
+  background-color: $dark2;
 }
 
 .header-bg {
   // animated background when hamburger menu is clicked
-  position: absolute;
+  position: fixed;
   bottom: 100%;
   width: 50vw;
   height: 100vh;
@@ -134,9 +135,7 @@ header#navigation {
     bottom: 10%;
     width: calc(100% - 16px);
     height: 2px;
-    background: linear-gradient(90deg, rgb(243, 161, 67) 0%, rgb(243, 161, 67) 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
-    // background: linear-gradient(90deg, rgba(251, 171, 42, 1) 0%, rgba(251, 171, 42, 1) 50%, rgba(251, 171, 42, 0) 50%, rgba(251, 171, 42, 0) 80%, rgba(251, 171, 42, 0) 100%);
-    // background: rgba(252, 171, 42);
+    background: linear-gradient(90deg, $light-gold-text 0%, $light-gold-text 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
     background-size: 400% 400%;
     animation: hoverLink 0.8s ease-out forwards;
   }
@@ -149,6 +148,6 @@ header#navigation {
   }
   100% {
     background-position: 0% 0%;
-    color: $gold-text;
+    color: $light-gold-text;
   }
 }
